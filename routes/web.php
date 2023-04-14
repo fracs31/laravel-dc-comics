@@ -16,3 +16,6 @@ use App\Http\Controllers\ComicController; //controller
 
 //Index
 Route::get('/', [ComicController::class, "index"])->name("comics.index");
+
+//Show
+Route::get('/comics/{comic}', [ComicController::class, "show"])->name("comics.show");
