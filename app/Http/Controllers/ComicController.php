@@ -47,7 +47,8 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        //
+        $comic = Comic::find($id); //cerco il fumetto tramite l'id
+        return view("comics.show", compact("comic")); //restituisco la vista
     }
 
     /**
