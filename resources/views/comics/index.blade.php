@@ -20,6 +20,7 @@
                 <th scope="col">Serie</th>
                 <th scope="col">Data di uscita</th>
                 <th scope="col">Tipo</th>
+                <th scope="col">Show</th>
               </tr>
             </thead>
             {{-- Corpo --}}
@@ -34,6 +35,7 @@
                         <td>{{ $comic->series }}</td>
                         <td>{{ $comic->sale_date }}</td>
                         <td>{{ $comic->type }}</td>
+                        <td><a href="{{ route("comics.show", $comic->id)}}">Info</a></td>
                     </tr>
                 @endforeach
             </tbody>
