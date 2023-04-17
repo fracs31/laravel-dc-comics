@@ -46,7 +46,7 @@ class ComicController extends Controller
         $newComic->sale_date = $data["sale_date"]; //data di uscita
         $newComic->type = $data["type"]; //tipo
         $newComic->save(); //salvo i dati nel database
-        return to_route("comics.show", $newComic); //
+        return to_route("comics.show", $newComic); //restituisco la vista "show"
     }
 
     /**
@@ -66,9 +66,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view("comics.edit", compact("comic")); //restituisco la vista
     }
 
     /**
@@ -78,9 +78,11 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all(); //prendo i dati dal form
+        $comic->update($data); //aggiorno i dati del fumetto
+        return to_route("comics.show", $comic); //restituisco la vista "show"
     }
 
     /**

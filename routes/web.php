@@ -25,3 +25,9 @@ Route::get('/comics/{comic}', [ComicController::class, "show"])->name("comics.sh
 
 //Store
 Route::post('/', [ComicController::class, "store"])->name("comics.store");
+
+//Edit
+Route::get('/comics/{comic}/edit', [ComicController::class, "edit"])->name("comics.edit");
+
+//Update
+Route::put('/comics/{comic}', [ComicController::class, "update"])->name("comics.update");
