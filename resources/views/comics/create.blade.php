@@ -9,7 +9,9 @@
             Create
         </h1>
         {{-- Form --}}
-        <form class="row g-3 pt-3">
+        <form class="row g-3 pt-3" action="{{ route("comics.store") }}" method="POST">
+            {{-- Cross-Site Request Forgery --}}
+            @csrf
             {{-- Titolo --}}
             <div class="col-12">
                 <label for="title" class="form-label">Titolo</label>
