@@ -31,9 +31,17 @@
                         <td>{{ $comic->series }}</td>
                         <td>{{ $comic->sale_date }}</td>
                         <td>{{ $comic->type }}</td>
-                        <td>
+                        <td class="d-flex gap-2">
+                            {{-- Info --}}
                             <a class="btn btn-primary" href="{{ route("comics.show", $comic)}}">Info</a>
+                            {{-- Edita --}}
                             <a class="btn btn-warning" href="{{ route("comics.edit", $comic)}}">Edita</a>
+                            {{-- Cancella --}}
+                            <form action="{{ route("comics.destroy", $comic) }}" method="POST">
+                                @csrf
+                                @method("DELETE")
+                                <button class="btn btn-danger" type="submit">Cancella</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
