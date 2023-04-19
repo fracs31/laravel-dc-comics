@@ -6,8 +6,18 @@
     <div class="container">
         {{-- Titolo --}}
         <h1>
-            Create
+            Edit
         </h1>
+        {{-- Errori --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         {{-- Form --}}
         <form class="row g-3 pt-3" action="{{ route("comics.update", $comic) }}" method="POST">
             {{-- Cross-Site Request Forgery --}}
