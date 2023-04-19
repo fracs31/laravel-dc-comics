@@ -8,6 +8,8 @@
         <h1>
             Tutti i fumetti
         </h1>
+        {{-- Bottone per aggiungere un fumetto --}}
+        <a class="btn btn-primary mb-3" href="{{ route("comics.create") }}">Crea un fumetto</a>
         {{-- Tabella --}}
         <table class="table">
             {{-- Testa --}}

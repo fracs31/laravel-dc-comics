@@ -8,16 +8,6 @@
         <h1>
             Edit
         </h1>
-        {{-- Errori --}}
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         {{-- Form --}}
         <form class="row g-3 pt-3" action="{{ route("comics.update", $comic) }}" method="POST">
             {{-- Cross-Site Request Forgery --}}
@@ -27,37 +17,65 @@
             {{-- Titolo --}}
             <div class="col-12">
                 <label for="title" class="form-label">Titolo</label>
-                <input type="text" class="form-control" name="title" value="{{ $comic->title }}">
+                <input type="text" class="form-control @error("title") is-invalid @enderror" name="title" value="{{ $comic->title }}">
+                {{-- Errore --}}
+                @error("title")
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             {{-- Descrizione --}}
             <div class="col-12">
                 <label for="description" class="form-label">Descrizione</label>
-                <textarea class="form-control" id="floatingTextarea" name="description">{{ $comic->description }}</textarea>
+                <textarea class="form-control @error("description") is-invalid @enderror" id="floatingTextarea" name="description">{{ $comic->description }}</textarea>
+                {{-- Errore --}}
+                @error("description")
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             {{-- Copertina --}}
             <div class="col-12">
                 <label for="thumb" class="form-label">Copertina (URL)</label>
-                <input type="text" class="form-control" name="thumb" value="{{ $comic->thumb }}">
+                <input type="text" class="form-control @error("thumb") is-invalid @enderror" name="thumb" value="{{ $comic->thumb }}">
+                {{-- Errore --}}
+                @error("thumb")
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             {{-- Prezzo --}}
             <div class="col-12">
                 <label for="price" class="form-label">Prezzo ($)</label>
-                <input type="text" class="form-control" name="price" value="{{ $comic->price }}">
+                <input type="text" class="form-control @error("price") is-invalid @enderror" name="price" value="{{ $comic->price }}">
+                {{-- Errore --}}
+                @error("price")
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             {{-- Serie --}}
             <div class="col-12">
                 <label for="series" class="form-label">Serie</label>
-                <input type="text" class="form-control" name="series" value="{{ $comic->series }}">
+                <input type="text" class="form-control @error("series") is-invalid @enderror" name="series" value="{{ $comic->series }}">
+                {{-- Errore --}}
+                @error("series")
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             {{-- Data di uscita --}}
             <div class="col-12">
                 <label for="sale_date" class="form-label">Data di uscita</label>
-                <input type="text" class="form-control" name="sale_date" value="{{ $comic->sale_date }}">
+                <input type="text" class="form-control @error("sale_date") is-invalid @enderror" name="sale_date" value="{{ $comic->sale_date }}">
+                {{-- Errore --}}
+                @error("sale_date")
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             {{-- Tipo --}}
             <div class="col-12">
                 <label for="type" class="form-label">Tipo</label>
-                <input type="text" class="form-control" name="type" value="{{ $comic->type }}">
+                <input type="text" class="form-control @error("type") is-invalid @enderror" name="type" value="{{ $comic->type }}">
+                {{-- Errore --}}
+                @error("type")
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             {{-- Invia --}}
             <div class="col-12">
